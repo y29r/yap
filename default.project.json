@@ -1,0 +1,11 @@
+{
+  "name": "Yap",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "Yap": {
+        "$path": "src"
+      }
+    }
+  }
+}
