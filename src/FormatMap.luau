@@ -3,6 +3,10 @@
 return {
 	["number"] = tostring,
 	["function"] = tostring,
+	["buffer"] = tostring,
+	["thread"] = tostring,
+	["userdata"] = tostring,
+	["boolean"] = tostring,
 	
 	["string"] = require("./Formatters/string"),
 	["Instance"] = require("./Formatters/Instance"),
