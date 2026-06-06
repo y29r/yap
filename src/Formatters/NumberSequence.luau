@@ -5,15 +5,13 @@ const createTableKeyValueFormatter = require("../createTableKeyValueFormatter")
 const NumberSequenceKeypointFormatter = require("./NumberSequenceKeypoint")
 
 return createTableKeyValueFormatter({
-	CustomKeys = {
-		Keypoints = function(object: NumberSequence) : { any }
-			const keypoints: { any } = {}
-			
-			for index: number, keypoint: NumberSequenceKeypoint in object.Keypoints do
-				table.insert(keypoints, NumberSequenceKeypointFormatter(keypoint))
-			end
-			
-			return keypoints
+	Keypoints = function(keypoints: { NumberSequenceKeypoint }) : { any }
+		const formattedKeypoints: { any } = {}
+		
+		for index: number, keypoint: NumberSequenceKeypoint in keypoints do
+			table.insert(formattedKeypoints, NumberSequenceKeypointFormatter(keypoint))
 		end
-	},
+		
+		return formattedKeypoints
+	end,
 })
