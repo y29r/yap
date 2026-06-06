@@ -2,7 +2,11 @@
 
 return {
 	Strict = true,
+	
+	TracebackEnabled = true,
+	
 	PrefferedStringQuote = "\"",
+	
 	SpacerSymbol = " ",
 	SpacerPrefix = "",
 	SpacersEnabled = true,

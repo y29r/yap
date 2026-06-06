@@ -5,7 +5,7 @@ const Types = require("./Types")
 type Tokens = Types.Tokens
 type StringTokens = Types.StringTokens
 
-const formatValueBasedOnType: (value: any) -> any = require("./formatValueBasedOnType")
+const getFormatterFromType: (value: any) -> any = require("./getFormatterFromType")
 
 const function addTypesToTokens(stringTokens: Tokens) : StringTokens
 	const typedStringTokens: StringTokens = {}
@@ -14,7 +14,7 @@ const function addTypesToTokens(stringTokens: Tokens) : StringTokens
 		if type(value) == "table" then
 			typedStringTokens[key] = addTypesToTokens(value)
 		else
-			typedStringTokens[key] = formatValueBasedOnType(value)
+			typedStringTokens[key] = getFormatterFromType(value)(value)
 		end
 	end
 	
