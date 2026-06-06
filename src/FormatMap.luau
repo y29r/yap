@@ -34,4 +34,5 @@ return {
 	["CatalogSearchParams"] = require("./Formatters/CatalogSearchParams"),
 	["ColorSequence"] = require("./Formatters/ColorSequence"),
 	["DateTime"] = require("./Formatters/DateTime"),
+	["FloatCurveKey"] = require("./Formatters/FloatCurveKey"),
 }
