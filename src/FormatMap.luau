@@ -38,4 +38,5 @@ return {
 	["NumberRange"] = require("./Formatters/NumberRange"),
 	["OverlapParams"] = require("./Formatters/OverlapParams"),
 	["PhysicalProperties"] = require("./Formatters/PhysicalProperties"),
+	["RaycastParams"] = require("./Formatters/RaycastParams"),
 }
