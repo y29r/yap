@@ -23,4 +23,6 @@ return {
 	["UDim2"] = require("./Formatters/UDim2"),
 	["Vector2int16"] = require("./Formatters/Vector2int16"),
 	["BrickColor"] = require("./Formatters/BrickColor"),
+	["Content"] = require("./Formatters/Content"),
+	["Faces"] = require("./Formatters/Faces"),
 }
