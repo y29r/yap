@@ -10,5 +10,5 @@ return createTableKeyValueFormatter({
 	g = true,
 	b = true,
 	Name = true,
-	Color = Color3Formatter.createColor3Formatter(),
+	Color = Color3Formatter,
 })

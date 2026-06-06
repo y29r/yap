@@ -10,7 +10,7 @@ return {
 	["CFrame"] = require("./Formatters/CFrame"),
 	["Vector3"] = require("./Formatters/Vector3"),
 	["Vector2"] = require("./Formatters/Vector2"),
-	["Color3"] = require("./Formatters/Color3").Private,
+	["Color3"] = require("./Formatters/Color3"),
 	["ColorSequenceKeypoint"] = require("./Formatters/ColorSequenceKeypoint"),
 	["NumberSequenceKeypoint"] = require("./Formatters/NumberSequenceKeypoint"),
 	["NumberSequence"] = require("./Formatters/NumberSequence"),
@@ -32,4 +32,5 @@ return {
 	["TweenInfo"] = require("./Formatters/TweenInfo"),
 	["ValueCurveKey"] = require("./Formatters/ValueCurveKey"),
 	["CatalogSearchParams"] = require("./Formatters/CatalogSearchParams"),
+	["ColorSequence"] = require("./Formatters/ColorSequence"),
 }
