@@ -30,4 +30,5 @@ return {
 	["RBXScriptConnection"] = require("./Formatters/RBXScriptConnection"),
 	["Region3"] = require("./Formatters/Region3"),
 	["TweenInfo"] = require("./Formatters/TweenInfo"),
+	["ValueCurveKey"] = require("./Formatters/ValueCurveKey"),
 }
