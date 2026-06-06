@@ -2,26 +2,16 @@
 
 const createTableKeyValueFormatter = require("../createTableKeyValueFormatter")
 
+const Vector3Formatter = require("./Vector3")
+
 return createTableKeyValueFormatter({
 	X = true,
 	Y = true,
 	Z = true,
 	
-	LookVector = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-	}),
-	UpVector = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-	}),
-	RightVector = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-	}),
+	LookVector = Vector3Formatter,
+	UpVector = Vector3Formatter,
+	RightVector = Vector3Formatter,
 	
 	Rotation = createTableKeyValueFormatter({
 		X = true,
@@ -43,19 +33,7 @@ return createTableKeyValueFormatter({
 		},
 	}),
 	
-	XVector = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-	}),
-	YVector = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-	}),
-	ZVector = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-	}),
+	XVector = Vector3Formatter,
+	YVector = Vector3Formatter,
+	ZVector = Vector3Formatter,
 })
