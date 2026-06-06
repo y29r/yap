@@ -6,8 +6,8 @@ const Vector3Formatter = require("./Vector3")
 
 return createTableKeyValueFormatter({
 	Unit = createTableKeyValueFormatter({
-		Origin = Vector3Formatter,
-		Direction = Vector3Formatter,
+		Origin = true,
+		Direction = true,
 		
 		CustomKeys = {
 			Unit = function() : string
