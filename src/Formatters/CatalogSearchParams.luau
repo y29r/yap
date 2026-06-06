@@ -3,14 +3,12 @@
 const createTableKeyValueFormatter = require("../createTableKeyValueFormatter")
 const createEnumArray = require("../createEnumArray")
 
-const stringFormatter = require("./string")
-
 return createTableKeyValueFormatter({
-	SearchKeyword = stringFormatter,
+	SearchKeyword = tostring,
 	MinPrice = true,
 	MaxPrice = true,
 	IncludeOffSale = true,
-	CreatorName = stringFormatter,
+	CreatorName = tostring,
 	CreatorId = true,
 	Limit = true,
 	CreatorType = tostring,

@@ -16,7 +16,7 @@ return function(array: { any }) : { [string]: any } | string
 	
 	const typeArray: { [string]: any } = {}
 	
-	const longestKeyLength: number = getLongestKeyLength(array, {})
+	const longestKeyLength: number = getLongestKeyLength(array, { ["++Type"] = true })
 	
 	local lastTypes: { string } = { typeof(array[1]) }
 	
@@ -30,7 +30,7 @@ return function(array: { any }) : { [string]: any } | string
 		end
 	end
 	
-	typeArray["++Type"] = "{ " .. table.concat(lastTypes, ", ") .. " }"
+	typeArray[formatKey("++Type", longestKeyLength)] = "{ " .. table.concat(lastTypes, ", ") .. " }"
 	
 	return typeArray
 end

@@ -7,8 +7,8 @@ const Types = require("./Types")
 type Tokens = Types.Tokens
 type StringTokens = Types.StringTokens
 
-const addTypesToTokens: (tokens: Tokens) -> StringTokens = require("./addTypesToTokens")
-const convertToStringTokens: (tokens: Tokens) -> StringTokens = require("./convertToStringTokens")
+const addTypesToTokens = require("./addTypesToTokens")
+const convertToStringTokens = require("./convertToStringTokens")
 
 const FormatMap = require("./FormatMap")
 

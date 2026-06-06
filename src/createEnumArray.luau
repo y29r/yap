@@ -10,20 +10,20 @@ return function(enumItems: { EnumItem }) : { [string]: any } | string
 	
 	const array: { [string]: any } = {}
 	
-	const longestKeyLength: number = getLongestKeyLength(enumItems, {})
+	const longestKeyLength: number = getLongestKeyLength(enumItems, { ["++Type"] = true })
 	
-	local lastEnumItemTypes: { string } = { tostring(enumItems[1].EnumType) }
+	local lastEnumItemTypes: { string } = { "Enum." .. tostring(enumItems[1].EnumType) }
 	
 	for index: number, value: EnumItem in enumItems do
 		array[formatKey(index, longestKeyLength)] = tostring(value)
 		
-		const valueEnumType: string = tostring(value.EnumType)
+		const valueEnumType: string = "Enum." .. tostring(value.EnumType)
 		if not table.find(lastEnumItemTypes, valueEnumType) then
 			table.insert(lastEnumItemTypes, valueEnumType)
 		end
 	end
 	
-	array["++Type"] = "{ " .. table.concat(lastEnumItemTypes, ", ") .. " }"
+	array[formatKey("++Type", longestKeyLength)] = "{ " .. table.concat(lastEnumItemTypes, ", ") .. " }"
 	
 	return array
 end
