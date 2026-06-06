@@ -39,4 +39,6 @@ return {
 	["OverlapParams"] = require("./Formatters/OverlapParams"),
 	["PhysicalProperties"] = require("./Formatters/PhysicalProperties"),
 	["RaycastParams"] = require("./Formatters/RaycastParams"),
+	["Region3int16"] = require("./Formatters/Region3int16"),
+	["Vector3int16"] = require("./Formatters/Vector3int16"),
 }
