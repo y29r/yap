@@ -37,4 +37,5 @@ return {
 	["FloatCurveKey"] = require("./Formatters/FloatCurveKey"),
 	["NumberRange"] = require("./Formatters/NumberRange"),
 	["OverlapParams"] = require("./Formatters/OverlapParams"),
+	["PhysicalProperties"] = require("./Formatters/PhysicalProperties"),
 }
