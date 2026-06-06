@@ -27,4 +27,5 @@ return {
 	["Faces"] = require("./Formatters/Faces"),
 	["PathWaypoint"] = require("./Formatters/PathWaypoint"),
 	["Ray"] = require("./Formatters/Ray"),
+	["RBXScriptConnection"] = require("./Formatters/RBXScriptConnection"),
 }

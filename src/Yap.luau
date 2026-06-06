@@ -10,14 +10,19 @@ type StringTokens = Types.StringTokens
 const addTypesToTokens: (tokens: Tokens) -> StringTokens = require("./addTypesToTokens")
 const convertToStringTokens: (tokens: Tokens) -> StringTokens = require("./convertToStringTokens")
 
+const FormatMap = require("./FormatMap")
+
 const Yap = {}
 
-function Yap.this(message: string, tokens: Tokens?, includeTypes: boolean?) : ()
-	if not includeTypes then
-		LogService:Output(message, tokens and convertToStringTokens(tokens))
-	else
+function Yap.this(message: string, tokens: Tokens?) : ()
+	LogService:Output(message, tokens and addTypesToTokens(convertToStringTokens(tokens)))
+end
+
+function Yap.now(...: any) : ()
+	for index: number, value: any in {...} do
+		const format = FormatMap[typeof(value)]
 		
-		LogService:Output(message, tokens and addTypesToTokens(convertToStringTokens(tokens)))
+		Yap.this(tostring(value), format(value))
 	end
 end
 
