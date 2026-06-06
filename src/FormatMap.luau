@@ -21,4 +21,6 @@ return {
 	["RotationCurveKey"] = require("./Formatters/RotationCurveKey"),
 	["UDim"] = require("./Formatters/UDim"),
 	["UDim2"] = require("./Formatters/UDim2"),
+	["Vector2int16"] = require("./Formatters/Vector2int16"),
+	["BrickColor"] = require("./Formatters/BrickColor"),
 }

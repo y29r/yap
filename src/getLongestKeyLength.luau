@@ -12,6 +12,10 @@ return function(keys: { [any]: any }) : number
 	const customKeys: { [any]: any }? = keys.CustomKeys
 	
 	for key: any in keys do
+		if key == "CustomKeys" then
+			continue
+		end
+		
 		const keyLength: number = string.len(tostring(key))
 		
 		if keyLength > longestKeyLength then

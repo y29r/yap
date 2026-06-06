@@ -14,6 +14,12 @@ const EmptyDictionary: { [any]: any } = {}
 
 const function createTableKeyValueFormatter(keys: TableKeys) : TableKeyValueFormatter
 	return function(object: any) : { [string]: any }
+		if keys.CustomKeys then
+			keys.CustomKeys["++Type"] = typeof
+		else
+			keys.CustomKeys = { ["++Type"] = typeof }
+		end
+		
 		local longestKeyLength: number = getLongestKeyLength(keys)
 		
 		const customKeys: { [any]: any }? = keys.CustomKeys
