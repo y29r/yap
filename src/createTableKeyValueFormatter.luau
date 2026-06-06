@@ -1,34 +1,33 @@
 --!strict
 
-const Config = require("./Config")
+const Types = require("./Types")
 
-const function convertToSpacer(key: string, longestKeyLength: number) : string
-	const length: number = string.len(key)
-	const spaces: number = longestKeyLength - length
-	
-	return key .. string.rep(Config.SpacerSymbol, spaces)
-end
+type TableKeyValueFormatter = Types.TableKeyValueFormatter
+type TableKeys = Types.TableKeys
 
-return function(keys: { [string]: true }) : (object: any) -> { [string]: any }
+const formatKey = require("./formatKey")
+const correctValue = require("./correctValue")
+const getLongestKeyLength = require("./getLongestKeyLength")
+const fixKeysAndValues = require("./fixKeysAndValues")
+
+const EmptyDictionary: { [any]: any } = {}
+
+const function createTableKeyValueFormatter(keys: TableKeys) : TableKeyValueFormatter
 	return function(object: any) : { [string]: any }
-		local longestKeyLength: number = 0
+		local longestKeyLength: number = getLongestKeyLength(keys)
 		
-		for key: any in keys do
-			const keyLength: number = string.len(tostring(key))
-			
-			if keyLength > longestKeyLength then
-				longestKeyLength = keyLength
-			end
-		end
+		const customKeys: { [any]: any }? = keys.CustomKeys
 		
-		const finalValue: { [string]: any } = {}
+		keys.CustomKeys = nil
 		
-		for key: any in keys do
-			const value: any = object[key]
-			
-			finalValue[Config.SpacersEnabled and convertToSpacer(key, longestKeyLength + Config.SpacerOffset) or key] = value
+		const finalValue: { [string]: any } = fixKeysAndValues(keys, object, longestKeyLength)
+		
+		for key: string, customCallback: (value: any) -> ...any in customKeys or EmptyDictionary do
+			finalValue[formatKey(key, longestKeyLength)] = correctValue(customCallback(object))
 		end
 		
 		return finalValue
 	end
 end
+
+return createTableKeyValueFormatter

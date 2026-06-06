@@ -1,47 +1,24 @@
 --!strict
 
-const Config = require("./Config")
-
-const createTableKeyValueFormatter: (keys: { [string]: true }) -> (object: any) -> { [string]: any } = require("./createTableKeyValueFormatter")
-const createWrapValueWithinTypeWrapper: (valueType: string) -> (value: any) -> string = require("./createWrapValueWithinTypeWrapper")
-
 return {
-	["string"] = function(value: string) : string
-		return string.format("%*%*%*", Config.PrefferedStringQuote, value, Config.PrefferedStringQuote)
-	end,
 	["number"] = tostring,
 	["function"] = tostring,
-	["Instance"] = function(value: Instance) : string
-		return string.format("Instance(%*)", value:GetFullName())
-	end,
-	["Axes"] = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-		Front = true,
-		Back = true,
-		Left = true,
-		Right = true,
-		Top = true,
-		Bottom = true,
-	}),
-	["CFrame"] = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-		LookVector = true,
-		UpVector = true,
-		RightVector = true,
-		Rotation = true,
-		XVector = true,
-		YVector = true,
-		ZVector = true,
-	}),
-	["Vector3"] = createTableKeyValueFormatter({
-		X = true,
-		Y = true,
-		Z = true,
-		Magnitude = true,
-		Unit = true,
-	}),
+	
+	["string"] = require("./Formatters/string"),
+	["Instance"] = require("./Formatters/Instance"),
+	["Axes"] = require("./Formatters/Axes"),
+	["CFrame"] = require("./Formatters/CFrame"),
+	["Vector3"] = require("./Formatters/Vector3"),
+	["Vector2"] = require("./Formatters/Vector2"),
+	["Color3"] = require("./Formatters/Color3").Private,
+	["ColorSequenceKeypoint"] = require("./Formatters/ColorSequenceKeypoint"),
+	["NumberSequenceKeypoint"] = require("./Formatters/NumberSequenceKeypoint"),
+	["NumberSequence"] = require("./Formatters/NumberSequence"),
+	["Enum"] = require("./Formatters/Enum"),
+	["EnumItem"] = require("./Formatters/EnumItem"),
+	["RaycastResult"] = require("./Formatters/RaycastResult"),
+	["Rect"] = require("./Formatters/Rect"),
+	["RotationCurveKey"] = require("./Formatters/RotationCurveKey"),
+	["UDim"] = require("./Formatters/UDim"),
+	["UDim2"] = require("./Formatters/UDim2"),
 }
