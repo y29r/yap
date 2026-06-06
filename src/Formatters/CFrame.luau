@@ -35,6 +35,12 @@ return createTableKeyValueFormatter({
 		XVector = true,
 		YVector = true,
 		ZVector = true,
+		
+		CustomKeys = {
+			Rotation = function(cframe: CFrame) : string
+				return "** CYCLIC **"
+			end,
+		},
 	}),
 	
 	XVector = createTableKeyValueFormatter({
