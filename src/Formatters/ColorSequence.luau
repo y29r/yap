@@ -6,13 +6,19 @@ const getLongestKeyLength = require("../getLongestKeyLength")
 const Color3Formatter = require("./Color3")
 
 return function(colorSequence: ColorSequence) : { [string]: any }
-	const keypointMap: { [string]: any } = {}
-	keypointMap["++Type"] = "ColorSequence"
-	
-	const longestKeyLength: number = getLongestKeyLength(colorSequence.Keypoints, {})
+	const decimalKeypointMap: { [string]: any } = {}
+	decimalKeypointMap["++Type"] = "ColorSequence"
 	
 	for index: number, colorSequenceKeypoint: ColorSequenceKeypoint in colorSequence.Keypoints do
-		keypointMap[formatKey(colorSequenceKeypoint.Time, longestKeyLength)] = Color3Formatter(colorSequenceKeypoint.Value)
+		decimalKeypointMap[string.format("%.3f", colorSequenceKeypoint.Time)] = Color3Formatter(colorSequenceKeypoint.Value)
+	end
+	
+	const longestKeyLength: number = getLongestKeyLength(decimalKeypointMap, {})
+	
+	const keypointMap: { [string]: any } = {}
+	
+	for key: string, value: any in decimalKeypointMap do
+		keypointMap[formatKey(key, longestKeyLength)] = value
 	end
 	
 	return keypointMap
