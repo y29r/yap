@@ -25,4 +25,5 @@ return {
 	["BrickColor"] = require("./Formatters/BrickColor"),
 	["Content"] = require("./Formatters/Content"),
 	["Faces"] = require("./Formatters/Faces"),
+	["PathWaypoint"] = require("./Formatters/PathWaypoint"),
 }

@@ -4,9 +4,11 @@ const formatKey = require("../formatKey")
 const getLongestKeyLength = require("../getLongestKeyLength")
 
 return function(value: Enum) : { [string]: string }
-	const keys: { EnumItem } = value:GetEnumItems()
+	const keys: { [any]: any } = value:GetEnumItems()
 	
-	const longestKeyLength: number = getLongestKeyLength(keys)
+	keys["++Type"] = "Enum." .. tostring(value)
+	
+	const longestKeyLength: number = getLongestKeyLength(keys, {})
 	
 	const finalValue: { [string]: string } = {}
 	

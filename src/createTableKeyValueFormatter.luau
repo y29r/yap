@@ -10,25 +10,23 @@ const correctValue = require("./correctValue")
 const getLongestKeyLength = require("./getLongestKeyLength")
 const fixKeysAndValues = require("./fixKeysAndValues")
 
-const EmptyDictionary: { [any]: any } = {}
-
 const function createTableKeyValueFormatter(keys: TableKeys) : TableKeyValueFormatter
+	if keys.CustomKeys then
+		keys.CustomKeys["++Type"] = typeof
+	else
+		keys.CustomKeys = { ["++Type"] = typeof }
+	end
+	
+	const customKeys: { [any]: any } = keys.CustomKeys or {}
+	
+	keys.CustomKeys = nil
+	
 	return function(object: any) : { [string]: any }
-		if keys.CustomKeys then
-			keys.CustomKeys["++Type"] = typeof
-		else
-			keys.CustomKeys = { ["++Type"] = typeof }
-		end
-		
-		local longestKeyLength: number = getLongestKeyLength(keys)
-		
-		const customKeys: { [any]: any }? = keys.CustomKeys
-		
-		keys.CustomKeys = nil
+		local longestKeyLength: number = getLongestKeyLength(keys, customKeys)
 		
 		const finalValue: { [string]: any } = fixKeysAndValues(keys, object, longestKeyLength)
 		
-		for key: string, customCallback: (value: any) -> ...any in customKeys or EmptyDictionary do
+		for key: string, customCallback: (value: any) -> ...any in customKeys do
 			finalValue[formatKey(key, longestKeyLength)] = correctValue(customCallback(object))
 		end
 		
