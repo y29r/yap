@@ -13,5 +13,5 @@ return {
 	SpacerOffset = 1,
 	
 	RoundNumbers = true,
-	RoundTo = 0.0001,
+	RoundPrecision = 0.0001,
 }
