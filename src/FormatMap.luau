@@ -28,4 +28,5 @@ return {
 	["PathWaypoint"] = require("./Formatters/PathWaypoint"),
 	["Ray"] = require("./Formatters/Ray"),
 	["RBXScriptConnection"] = require("./Formatters/RBXScriptConnection"),
+	["Region3"] = require("./Formatters/Region3"),
 }
