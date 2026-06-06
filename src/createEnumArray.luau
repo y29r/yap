@@ -4,7 +4,7 @@ const formatKey = require("./formatKey")
 const getLongestKeyLength = require("./getLongestKeyLength")
 
 return function(enumItems: { EnumItem }) : { [string]: any } | string
-	if #enumItems == 0 then
+	if not enumItems or #enumItems == 0 then
 		return "{}"
 	end
 	

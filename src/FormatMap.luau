@@ -36,4 +36,5 @@ return {
 	["DateTime"] = require("./Formatters/DateTime"),
 	["FloatCurveKey"] = require("./Formatters/FloatCurveKey"),
 	["NumberRange"] = require("./Formatters/NumberRange"),
+	["OverlapParams"] = require("./Formatters/OverlapParams"),
 }
