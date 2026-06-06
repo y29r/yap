@@ -26,4 +26,5 @@ return {
 	["Content"] = require("./Formatters/Content"),
 	["Faces"] = require("./Formatters/Faces"),
 	["PathWaypoint"] = require("./Formatters/PathWaypoint"),
+	["Ray"] = require("./Formatters/Ray"),
 }
