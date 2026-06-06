@@ -1,9 +1,9 @@
 --!strict
 
-const Config = require("./Config")
+const ConfigManager = require("./ConfigManager")
 
 return function(value: any) : any
-	if Config.Strict then
+	if ConfigManager.get("Strict") then
 		warn(string.format("Failed to find a type format function for the type: %* \nReturning a backup formatter.", typeof(value)))
 	end
 	

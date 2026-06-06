@@ -1,9 +1,11 @@
 --!strict
 
-const Config = require("./Config")
+const ConfigManager = require("./ConfigManager")
 
 const convertToSpacer = require("./convertToSpacer")
 
 return function(key: any, longestKeyLength: number) : string
-	return Config.SpacersEnabled and convertToSpacer(key, longestKeyLength + Config.SpacerOffset) or key
+	return ConfigManager.get("SpacersEnabled")
+		and convertToSpacer(key, longestKeyLength + ConfigManager.get("SpacerOffset"))
+		or key
 end

@@ -6,14 +6,14 @@ const Types = require("./Types")
 
 type Tokens = Types.Tokens
 
-const Config = require("./Config")
+const ConfigManager = require("./ConfigManager")
 
 const addTypesToTokens = require("./addTypesToTokens")
 const convertToStringTokens = require("./convertToStringTokens")
 const formatTraceback = require("./formatTraceback")
 
 return function(message: string, tokens: Tokens?) : ()
-	if Config.TracebackEnabled and tokens then
+	if ConfigManager.get("TracebackEnabled") and tokens then
 		tokens["++Trace"] = formatTraceback(debug.traceback())
 	end
 	

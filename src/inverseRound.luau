@@ -1,7 +1,9 @@
 --!strict
 
-const Config = require("./Config")
+const ConfigManager = require("./ConfigManager")
 
 return function(value: number) : number
-	return math.round(value * (1 / Config.RoundPrecision)) / (1 / Config.RoundPrecision)
+	const inverseScaler: number = 1 / ConfigManager.get("RoundPrecision")
+	
+	return math.round(value * inverseScaler) / inverseScaler
 end

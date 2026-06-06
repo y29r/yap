@@ -1,7 +1,9 @@
 --!strict
 
-const Config = require("../Config")
+const ConfigManager = require("../ConfigManager")
 
 return function(value: string) : string
-	return string.format("%*%*%*", Config.PrefferedStringQuote, value, Config.PrefferedStringQuote)
+	const preferredStringQuote: string = ConfigManager.get("PrefferedStringQuote")
+	
+	return string.format("%*%*%*", preferredStringQuote, value, preferredStringQuote)
 end

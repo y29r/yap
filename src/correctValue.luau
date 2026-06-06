@@ -1,11 +1,11 @@
 --!strict
 
-const Config = require("./Config")
+const ConfigManager = require("./ConfigManager")
 
 const inverseRound = require("./inverseRound")
 
 return function(value: any) : any
-	if type(value) == "number" and Config.RoundNumbers then
+	if type(value) == "number" and ConfigManager.get("RoundNumbers") then
 		value = inverseRound(value)
 	end
 	
