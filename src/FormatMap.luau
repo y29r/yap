@@ -35,4 +35,5 @@ return {
 	["ColorSequence"] = require("./Formatters/ColorSequence"),
 	["DateTime"] = require("./Formatters/DateTime"),
 	["FloatCurveKey"] = require("./Formatters/FloatCurveKey"),
+	["NumberRange"] = require("./Formatters/NumberRange"),
 }
