@@ -31,4 +31,5 @@ return {
 	["Region3"] = require("./Formatters/Region3"),
 	["TweenInfo"] = require("./Formatters/TweenInfo"),
 	["ValueCurveKey"] = require("./Formatters/ValueCurveKey"),
+	["CatalogSearchParams"] = require("./Formatters/CatalogSearchParams"),
 }
