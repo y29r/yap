@@ -7,6 +7,13 @@ export type TableKeyValueFormatter = (object: any) -> { [string]: any }
 export type TableKeys = { [string]: true | TableKeyValueFormatter | any, CustomKeys: { [string]: (value: any) -> ...any }? }
 export type createTableKeyValueFormatter = (keys: TableKeys) -> TableKeyValueFormatter
 
+export type LogHistoryNode = {
+	context: { [any]: any },
+	message: string,
+	messageType: Enum.MessageType,
+	timestamp: number,
+}
+
 export type BaseConfig = {
 	Strict: boolean,
 	
