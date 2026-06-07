@@ -10,13 +10,13 @@ export type StringTokens = Types.StringTokens
 export type Config = Types.Config
 
 const Yap = {
-	log = require("./log"),
-	this = require("./this"),
-	error = require("./error"),
-	info = require("./info"),
-	warn = require("./warn"),
-	clear = require("./clearOutput"),
-	getLogHistory = require("./getLogHistory"),
+	log = require("./Public/log"),
+	this = require("./Public/this"),
+	error = require("./Public/error"),
+	info = require("./Public/info"),
+	warn = require("./Public/warn"),
+	clear = require("./Public/clearOutput"),
+	getLogHistory = require("./Public/getLogHistory"),
 	
 	MessageOut = LogService.MessageOut,
 	

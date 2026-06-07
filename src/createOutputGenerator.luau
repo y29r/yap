@@ -23,7 +23,7 @@ return function(messageType: Enum.MessageType) : (message: string, tokens: Token
 	const outputFunction: (logService: LogService, ...any) -> () = (LogService :: any)[MessageTypeToMethodName[messageType]]
 	
 	return function(message: string, tokens: Tokens?) : ()
-		if ConfigManager.get("TracebackEnabled") and tokens then
+		if ConfigManager.get("TracebackEnabled") and type(tokens) == "table" then
 			tokens["++Trace"] = formatTraceback(debug.traceback())
 		end
 		

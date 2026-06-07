@@ -1,7 +1,7 @@
 --!strict
 
 const this = require("./this")
-const getFormatterFromType = require("./getFormatterFromType")
+const getFormatterFromType = require("../getFormatterFromType")
 
 return function(...: any) : ()
 	for index: number, value: any in {...} do
@@ -12,6 +12,9 @@ return function(...: any) : ()
 			continue
 		end
 		
-		this(valueType, getFormatterFromType(value)(value))
+		const context: any = getFormatterFromType(value)(value)
+		const contextType: string = typeof(context)
+		
+		this(valueType, contextType == "table" and contextType or {})
 	end
 end
