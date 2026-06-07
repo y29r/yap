@@ -25,7 +25,7 @@ export type BaseConfig = {
 	SpacerPrefix: string,
 	SpacerOffset: number,
 	
-	RoundNumbers: boolean,
+	RoundingEnabled: boolean,
 	RoundPrecision: number,
 }
 
@@ -41,7 +41,7 @@ export type PartialBaseConfig = {
 	SpacerPrefix: string?,
 	SpacerOffset: number?,
 	
-	RoundNumbers: boolean?,
+	RoundingEnabled: boolean?,
 	RoundPrecision: number?,
 }
 
