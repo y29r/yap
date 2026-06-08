@@ -9,7 +9,7 @@ return {
 	
 	TracebackEnabled     = true, -- if true, the context table includes a ++Trace key-value with information about the stack
 	
-	PrefferedStringQuote = "\"", -- takes priority when displaying a string type
+	PrefferedStringQuote = "",   -- takes priority when displaying a string type
 	
 	SpacersEnabled       = true, -- if true, a spacer is created for every key to ensure an equal length for all the keys
 	SpacerSymbol         = " ",  -- the string which is repeated
@@ -26,5 +26,8 @@ return {
 	MaxDuplicateLogs     = 100,  -- the amount of duplicate logs allowed before new duplicate logs get dropped
 	ClearCacheSeconds    = 120,  -- how long a log remains within the cache to determine duplicate logs
 	
-	ProductionOverrides  = {},   -- optional config overrides that take authority inside production builds
+	-- optional config overrides that take authority inside production builds
+	ProductionOverrides = {
+		PrefferedStringQuote = "\"",
+	},
 } :: Config
