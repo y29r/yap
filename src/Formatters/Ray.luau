@@ -10,9 +10,7 @@ return createTableKeyValueFormatter({
 		Direction = true,
 		
 		CustomKeys = {
-			Unit = function() : string
-				return "** CYCLIC **"
-			end,
+			Unit = "** CYCLIC **",
 		},
 	}),
 	Origin = Vector3Formatter,

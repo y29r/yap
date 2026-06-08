@@ -26,8 +26,11 @@ const function createTableKeyValueFormatter(keys: TableKeys) : TableKeyValueForm
 		
 		const finalValue: { [string]: any } = fixKeysAndValues(keys, object, longestKeyLength)
 		
-		for key: string, customCallback: (value: any) -> ...any in customKeys do
-			finalValue[formatKey(key, longestKeyLength)] = correctValue(customCallback(object))
+		for key: string, value: ((value: any) -> ...any) | any in customKeys do
+			finalValue[formatKey(key, longestKeyLength)] = correctValue(
+				type(value) == "function" and (value :: any)(object)
+				or value
+			)
 		end
 		
 		return finalValue

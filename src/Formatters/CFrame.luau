@@ -27,9 +27,7 @@ return createTableKeyValueFormatter({
 		ZVector = true,
 		
 		CustomKeys = {
-			Rotation = function(cframe: CFrame) : string
-				return "** CYCLIC **"
-			end,
+			Rotation = "** CYCLIC **",
 		},
 	}),
 	
