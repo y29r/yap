@@ -1,9 +1,11 @@
 --!strict
 
-const ConfigManager = require("../ConfigManager")
+--const ConfigManager = require("../ConfigManager")
 
-return function(value: string) : string
-	const preferredStringQuote: string = ConfigManager.get("PrefferedStringQuote")
+-- return function(value: string) : string
+-- 	const preferredStringQuote: string = ConfigManager.get("PrefferedStringQuote")
 	
-	return string.format("%*%*%*", preferredStringQuote, value, preferredStringQuote)
-end
+-- 	return string.format("%*%*%*", preferredStringQuote, value, preferredStringQuote)
+-- end
+
+return tostring

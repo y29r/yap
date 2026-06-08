@@ -15,6 +15,6 @@ return function(...: any) : ()
 		const context: any = getFormatterFromType(value)(value)
 		const contextType: string = typeof(context)
 		
-		this(valueType, contextType == "table" and contextType or {})
+		this("{value}", contextType == "table" and contextType or { value = context })
 	end
 end

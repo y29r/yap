@@ -5,7 +5,7 @@ const createTableKeyValueFormatter = require("../createTableKeyValueFormatter")
 return createTableKeyValueFormatter({
 	CustomKeys = {
 		RGB = function(color: Color3) : string
-			return table.concat({ math.round(color.R * 255), math.round(color.G * 255), math.round(color.B* 255) }, ", ")
+			return string.format("%*, %*, %*", math.round(color.R * 255), math.round(color.G * 255), math.round(color.B * 255))
 		end,
 		
 		HSV = function(color3: Color3) : string

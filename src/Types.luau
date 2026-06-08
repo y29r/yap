@@ -27,6 +27,10 @@ export type BaseConfig = {
 	
 	RoundingEnabled: boolean,
 	RoundPrecision: number,
+	
+	DuplicateLogsEnabled: boolean,
+	MaxDuplicateLogs: number,
+	ClearCacheSeconds: number,
 }
 
 -- TODO: Once the type solver becomes more stable, use the optional type function instead of creating a new type
@@ -43,6 +47,10 @@ export type PartialBaseConfig = {
 	
 	RoundingEnabled: boolean?,
 	RoundPrecision: number?,
+	
+	DuplicateLogsEnabled: boolean?,
+	MaxDuplicateLogs: number?,
+	ClearCacheSeconds: number?,
 }
 
 export type Config = BaseConfig & {
