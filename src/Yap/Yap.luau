@@ -18,6 +18,8 @@ const clear = require("./Public/clearOutput")
 const dif = require("./Public/dif")
 const getLogHistory = require("./Public/getLogHistory")
 
+const YapApplication = require("./Interface/YapApplication")
+
 const Yap = {
 	log = log,
 	this = this,
@@ -31,6 +33,9 @@ const Yap = {
 	MessageOut = LogService.MessageOut,
 	
 	Config = require("./ConfigManager"),
+	
+	open = YapApplication.open,
+	close = YapApplication.close,
 }
 
 return Yap

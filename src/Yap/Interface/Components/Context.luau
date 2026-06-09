@@ -1,33 +1,51 @@
-local Context = Instance.new("Frame")
-Context.Name = "Context"
-Context.AutomaticSize = Enum.AutomaticSize.Y
-Context.Size = UDim2.new(1, 0, 0, 24)
-Context.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Context.BackgroundTransparency = 1
-Context.BorderSizePixel = 0
-Context.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+--!strict
 
-local Header = Instance.new("TextLabel")
-Header.Name = "Header"
-Header.AutomaticSize = Enum.AutomaticSize.X
-Header.Size = UDim2.new(1, 0, 0, 24)
-Header.BorderColor3 = Color3.fromRGB(255, 255, 255)
-Header.BackgroundTransparency = 1
-Header.BorderSizePixel = 0
-Header.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Header.TextSize = 16
-Header.TextColor3 = Color3.fromRGB(255, 255, 255)
-Header.Text = "RGB : [254, 215, 138]"
-Header.FontFace = Font.fromName("RobotoMono", Enum.FontWeight.Regular)
-Header.TextXAlignment = Enum.TextXAlignment.Left
-Header.Parent = Context
+const React = require("../../../Packages/React/React")
 
-local UIListLayout = Instance.new("UIListLayout")
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Parent = Context
+const create = React.createElement
 
-local UIPadding = Instance.new("UIPadding")
-UIPadding.PaddingLeft = UDim.new(0, 32)
-UIPadding.Parent = Context
+const merge = require("../merge")
+
+export type Props = {
+	Text: string,
+	
+	children: { React.Element<any> }?
+}
+
+const function Context(props: Props)
+	const showChildren: boolean, setShowChildren: React.SetState<boolean> = React.useState(false)
+	
+	return create("Frame", {
+		AutomaticSize = Enum.AutomaticSize.Y,
+		Size = UDim2.new(1, 0, 0, 24),
+		BorderColor3 = Color3.fromRGB(0, 0, 0),
+		BackgroundTransparency = 1,
+		BorderSizePixel = 0,
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+	}, merge({
+		Label = create("TextButton", {
+			AutomaticSize = Enum.AutomaticSize.X,
+			Size = UDim2.new(1, 0, 0, 24),
+			BorderColor3 = Color3.fromRGB(255, 255, 255),
+			BackgroundTransparency = 1,
+			BorderSizePixel = 0,
+			BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+			TextSize = 16,
+			TextColor3 = Color3.fromRGB(255, 255, 255),
+			Text = props.Text,
+			FontFace = Font.fromName("RobotoMono", Enum.FontWeight.Regular),
+			TextXAlignment = Enum.TextXAlignment.Left,
+			[React.Event.Activated] = function(reference: TextButton) : ()
+				setShowChildren(not showChildren)
+			end,
+		}),
+		ListLayout = create("UIListLayout", {
+			SortOrder = Enum.SortOrder.LayoutOrder,
+		}),
+		Padding = create("UIPadding", {
+			PaddingLeft = UDim.new(0, 32),
+		}),
+	}, showChildren and props.children or {}))
+end
 
 return Context

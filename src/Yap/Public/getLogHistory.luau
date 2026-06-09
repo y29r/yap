@@ -4,7 +4,7 @@ const LogService: LogService = game:GetService("LogService")
 
 const Types = require("../Types")
 
-type LogHistoryNode = Types.LogHistoryNode
+export type LogHistoryNode = Types.LogHistoryNode
 
 --[[
 
