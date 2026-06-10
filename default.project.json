@@ -1,14 +1,19 @@
 {
-  "name": "Yap",
+  "name": "round-system",
+  "emitLegacyScripts": false,
   "tree": {
     "$className": "DataModel",
+    "ReplicatedFirst": {
+      "$path": "src/ReplicatedFirst"
+    },
     "ReplicatedStorage": {
-      "Packages": {
-        "$path": "src/Packages"
-      },
-      "Yap": {
-        "$path": "src/Yap"
-      }
+      "$path": "src/ReplicatedStorage"
+    },
+    "ServerScriptService": {
+      "$path": "src/ServerScriptService"
+    },
+    "ServerStorage": {
+      "$path": "src/ServerStorage"
     }
   }
 }

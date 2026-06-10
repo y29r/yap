@@ -1,0 +1,21 @@
+{
+	"properties": {
+		"Attributes": {
+			"LogWarnings": {
+				"Bool": true
+			},
+			"LogInitialization": {
+				"Bool": true
+			},
+			"LogStartupInfo": {
+				"Bool": true
+			},
+			"Disabled": {
+				"Bool": false
+			}
+		},
+		"Tags": [
+			"DotslashController"
+		]
+	}
+}
