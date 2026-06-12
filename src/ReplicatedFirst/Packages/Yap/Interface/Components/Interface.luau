@@ -1,15 +1,22 @@
 --!strict
 
-const LogService: LogService = game:GetService("LogService")
-
 const React = require("@game/ReplicatedFirst/Packages/React/React")
 const Table = require("@game/ReplicatedFirst/Packages/TableUtility/TableUtility")
+const Signal = require("@game/ReplicatedFirst/Packages/Signal/Signal")
+
+type Connection = Signal.Connection
 
 const create = React.createElement
 
+const Types = require("../../Types")
+
+type LogNode = Types.LogNode
+
 const Context = require("./Context")
 
-const getLogHistory = require("../../Public/getLogHistory")
+const MessageOut = require("../../MessageOut")
+
+const formatContext = require("../../formatContext")
 
 export type Props = {
 	children: { React.Element<any> }?
@@ -31,30 +38,34 @@ const function Interface(props: Props)
 		return function() : () end
 	end, { guiReference.current, containerReference.current, dragDetectorReference.current } :: { any })
 	
-	const logHistory: { getLogHistory.LogHistoryNode },
-		setLogHistory: React.SetState<{ getLogHistory.LogHistoryNode }> = React.useState(getLogHistory())
+	const logElements: { React.ReactElement<Context.Props, any> }, setLogElements: React.SetState<{ React.ReactElement<Context.Props, any> }> = React.useState({})
 	
-	const messageAdded = React.useCallback(function(message: string, messageType: Enum.MessageType, context: { [string]: any }) : ()
-		setLogHistory(getLogHistory())
+	const messageAdded = React.useCallback(function(message: string, messageType: Enum.MessageType, context: { [string]: any }?) : ()
+		if not context then
+			return
+		end
+		
+		setLogElements(function(currentElements: { React.ReactElement<Context.Props, any> }) : { React.ReactElement<Context.Props, any> }
+			currentElements = table.clone(currentElements)
+			
+			table.insert(currentElements, create(Context, {
+				Key = message,
+				Value = "",
+				Context = formatContext(context),
+				LeftPadding = 0,
+			}))
+			
+			return currentElements
+		end)
 	end, {})
 	
 	React.useEffect(function() : () -> ()
-		const connection: RBXScriptConnection = LogService.MessageOut:Connect(messageAdded)
+		const connection: Connection = MessageOut:Connect(messageAdded)
 		
 		return function() : ()
 			connection:Disconnect()
 		end
 	end, {})
-	
-	const logElements: { any } = {}
-	
-	for index: number, value: getLogHistory.LogHistoryNode in logHistory do
-		table.insert(logElements, create(Context, {
-			Text = value.message,
-		}))
-	end
-	
-	--print(logHistory)
 	
 	return create("ScreenGui", {
 		ref = guiReference,

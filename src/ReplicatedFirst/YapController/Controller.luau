@@ -10,6 +10,35 @@ end
 
 function Controller.defer() : ()
 	Yap.open()
+	
+	while true do
+		Yap.output("hello this is a test", {
+			apples = 25,
+			lemons = 12.526,
+			aBigNumber = 1958219,
+			myFunction = function() end,
+			items = {
+				swords = {
+					iron = 25,
+					diamond = 3,
+					emerald = 0,
+				},
+				shields = {
+					wooden = 3,
+					copper = 9,
+					stone = 2,
+				},
+				armor = {
+					leather = 25,
+					iron = 3,
+				},
+			},
+			placement = CFrame.identity,
+			myFavouriteString = "hello world!",
+		})
+		
+		task.wait(1)
+	end
 end
 
 return Controller
