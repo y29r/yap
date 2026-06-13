@@ -36,6 +36,8 @@ function Controller.defer() : ()
 			placement = CFrame.identity,
 			myFavouriteString = "hello world!",
 			myColor = Color3.fromRGB(255, 216, 87),
+			myBoolean = true,
+			myBooleans = { true, false, true, true, true, false, false, true },
 		})
 		
 		task.wait(1)
