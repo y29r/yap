@@ -2,6 +2,8 @@
 
 const DataTypeTokens = require("../DataTypeTokens")
 
+const Themes = require("../Themes")
+
 const colorString = require("../colorString")
 const formatValue = require("../formatValue")
 
@@ -10,7 +12,7 @@ return function(value: Vector3) : any
 		[DataTypeTokens.TypeToken] = {
 			Type = "Vector3",
 			CustomString = string.format("%*(%*, %*, %*)",
-				colorString("Vector3", Color3.fromRGB(143, 180, 255)),
+				colorString("Vector3", Themes.DataTypeClassColor),
 				formatValue("X", value.X),
 				formatValue("Y", value.Y),
 				formatValue("Z", value.Z)
@@ -25,7 +27,7 @@ return function(value: Vector3) : any
 			[DataTypeTokens.TypeToken] = {
 				Type = "Vector3",
 				CustomString = string.format("%*(%*, %*, %*)",
-					colorString("Vector3", Color3.fromRGB(143, 180, 255)),
+					colorString("Vector3", Themes.DataTypeClassColor),
 					formatValue("X", value.X),
 					formatValue("Y", value.Y),
 					formatValue("Z", value.Z)

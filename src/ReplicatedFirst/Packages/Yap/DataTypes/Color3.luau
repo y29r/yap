@@ -3,6 +3,8 @@
 const formatValue = require("../formatValue")
 const DataTypeTokens = require("../DataTypeTokens")
 
+const Themes = require("../Themes")
+
 const colorString = require("../colorString")
 
 const function upscale255(value: number) : number
@@ -16,7 +18,7 @@ return function(value: Color3) : any
 		[DataTypeTokens.TypeToken] = {
 			Type = "Color3",
 			CustomString = string.format("%*(%*, %*, %*)",
-				colorString("Color3", Color3.fromRGB(143, 180, 255)),
+				colorString("Color3", Themes.DataTypeClassColor),
 				formatValue("R", upscale255(value.R)),
 				formatValue("G", upscale255(value.G)),
 				formatValue("B", upscale255(value.B))
