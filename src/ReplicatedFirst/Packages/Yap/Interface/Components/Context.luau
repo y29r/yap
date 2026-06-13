@@ -23,7 +23,7 @@ export type Props = {
 	children: { React.ReactElement<any> }?
 }
 
-function Context(props: Props)
+function Context(props: Props) : React.ReactElement<any, any>?
 	if props.Key == DataTypeTokens.TypeToken then
 		return
 	end

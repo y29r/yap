@@ -3,6 +3,7 @@
 const DataTypeSerializers = {
 	CFrame = require("./DataTypes/CFrame"),
 	Vector3 = require("./DataTypes/Vector3"),
+	Color3 = require("./DataTypes/Color3"),
 }
 
 const function formatContext(context: { [any]: any }) : { [any]: any }

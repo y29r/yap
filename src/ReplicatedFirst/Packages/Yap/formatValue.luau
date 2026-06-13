@@ -21,7 +21,7 @@ const function formatValue(key: any, value: any) : string
 	elseif valueType == "number" then
 		return colorString(Beaver.Comma(value), Color3.fromRGB(255, 207, 112))
 	elseif valueType == "string" then
-		return colorString(value, Color3.fromRGB(172, 255, 120))
+		return colorString("\"" .. value .. "\"", Color3.fromRGB(172, 255, 120))
 	elseif valueType == "boolean" then
 		return colorString(tostring(value), Color3.fromRGB(242, 103, 255))
 	end
